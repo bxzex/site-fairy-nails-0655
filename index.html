@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fairy Nails</title>
+    
+    <!-- SEO & OG Meta Tags -->
+    <meta name="description" content="Fairy Nails is a highly-rated luxury nail salon in Cutler Bay, FL, offering professional nail services, exceptional customer satisfaction, and a welcoming environment.">
+    <meta property="og:title" content="Fairy Nails">
+    <meta property="og:description" content="Fairy Nails is a highly-rated luxury nail salon in Cutler Bay, FL, offering professional nail services, exceptional customer satisfaction, and a welcoming environment.">
+    <meta property="og:image" content="./image-1.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23b86b7d'/><text x='50' y='68' font-size='60' fill='white' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold'>F</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           CSS VARIABLES & RESET
+           ========================================== */
+        :root {
+            /* 5-Color Luxury Palette (Nail Salon: Rose Gold, Cream, Charcoal) */
+            --clr-primary: hsl(340, 40%, 60%); /* Rose Gold / Soft Pink */
+            --clr-primary-light: hsl(340, 40%, 75%);
+            --clr-accent: hsl(340, 30%, 20%); /* Deep Burgundy */
+            --clr-bg: hsl(30, 20%, 98%); /* Cream / Off-white */
+            --clr-surface: hsl(0, 0%, 100%); /* Pure White */
+            --clr-text: hsl(0, 0%, 15%); /* Dark Charcoal */
+            --clr-text-light: hsl(0, 0%, 40%);
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --radius-sm: 12px;
+            --radius-md: 24px;
+            --radius-lg: 32px;
+            
+            --shadow-soft: 0 10px 40px rgba(184, 107, 125, 0.08);
+            --shadow-hover: 0 20px 50px rgba(184, 107, 125, 0.15);
+            
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+            
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--clr-bg);
+            color: var(--clr-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.1;
+            margin: 0 0 1rem 0;
+            color: var(--clr-accent);
+        }
+
+        p {
+            margin: 0 0 1.5rem 0;
+            font-size: 1.1rem;
+            color: var(--clr-text-light);
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--clr-primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* ==========================================
+           PRELOADER
+           ========================================== */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--clr-bg);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .loader-text {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--clr-accent);
+            animation: pulse 1.5s infinite alternate;
+            padding: 0 2rem;
+            text-align: center;
+            word-break: break-word;
+            max-width: 90vw;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1.02); }
+        }
+
+        /* ==========================================
+           NAVIGATION
+           ========================================== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background: transparent;
+        }
+        nav.scrolled {
+            background: rgba(252, 251, 249, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            box-shadow: var(--shadow-soft);
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--clr-accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--clr-primary);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--clr-primary);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Open/Closed Badge */
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            background: var(--clr-surface);
+            box-shadow: var(--shadow-soft);
+            border: var(--glass-border);
+        }
+        .status-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+        }
+        .status-open .status-dot { background: #10b981; box-shadow: 0 0 10px #10b981; animation: pulseDot 2s infinite; }
+        .status-open .status-text { color: #10b981; }
+        .status-closed .status-dot { background: #ef4444; }
+        .status-closed .status-text { color: #ef4444; }
+        @keyframes pulseDot { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+        /* ==========================================
+           BUTTONS
+           ========================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--clr-accent);
+            color: var(--clr-surface);
+            box-shadow: 0 10px 20px rgba(66, 36, 44, 0.2);
+        }
+        .btn-primary:hover {
+            background: var(--clr-primary);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(184, 107, 125, 0.3);
+            color: white;
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--clr-accent);
+            border: 1px solid var(--clr-accent);
+        }
+        .btn-outline:hover {
+            background: var(--clr-accent);
+            color: var(--clr-surface);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* ==========================================
+           STICKY SIDEBAR
+           ========================================== */
+        .sticky-sidebar {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 900;
+        }
+        .sticky-sidebar a {
+            width: 45px; height: 45px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--clr-accent);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
+        }
+        .sticky-sidebar a:hover {
+            background: var(--clr-primary);
+            color: white;
+            transform: scale(1.1) translateX(-5px);
+        }
+
+        /* ==========================================
+           HERO SECTION
+           ========================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: clamp(6rem, 15vh, 12rem) 5% clamp(4rem, 10vh, 8rem);
+            gap: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            flex: 1;
+            z-index: 10;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: heroReveal 1s ease forwards 0.2s;
+        }
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: heroReveal 1s ease forwards 0.4s;
+        }
+        .hero .btn-group {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: heroReveal 1s ease forwards 0.6s;
+        }
+        .hero-image-wrapper {
+            flex: 1;
+            height: 75vh;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-hover);
+            animation: float 8s ease-in-out infinite;
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenburns 20s linear infinite alternate;
+        }
+        
+        @keyframes heroReveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        /* ==========================================
+           MARQUEE
+           ========================================== */
+        .marquee-section {
+            background: var(--clr-accent);
+            color: var(--clr-surface);
+            padding: 2rem 0;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: flex;
+            animation: scrollMarquee 20s linear infinite;
+        }
+        .marquee-item {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-style: italic;
+            margin: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .marquee-item i {
+            color: var(--clr-primary);
+            font-size: 1rem;
+        }
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ==========================================
+           ABOUT SECTION
+           ========================================== */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        .experience-badge {
+            position: absolute;
+            bottom: -20px; right: -20px;
+            background: var(--clr-primary);
+            color: white;
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: var(--font-heading);
+            box-shadow: var(--shadow-hover);
+            border: 8px solid var(--clr-bg);
+            z-index: 2;
+        }
+        .experience-badge span { font-size: 2.5rem; line-height: 1; }
+        .experience-badge small { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ==========================================
+           STATS COUNTER
+           ========================================== */
+        .stats {
+            background: var(--clr-surface);
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            border-radius: var(--radius-lg);
+            margin: 0 5%;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--clr-primary);
+            margin-bottom: 1rem;
+        }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--clr-accent);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--clr-text-light);
+        }
+
+        /* ==========================================
+           WHY CHOOSE US
+           ========================================== */
+        .features {
+            text-align: center;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        .feature-card {
+            background: var(--glass-bg);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-md);
+            border: var(--glass-border);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            background: var(--clr-surface);
+        }
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--clr-primary);
+            margin-bottom: 1.5rem;
+        }
+        .feature-card h3 { font-size: 1.5rem; }
+
+        /* ==========================================
+           SERVICES
+           ========================================== */
+        .services {
+            background: var(--clr-accent);
+            color: var(--clr-surface);
+        }
+        .services .eyebrow { color: var(--clr-primary-light); }
+        .services h2 { color: var(--clr-surface); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+            border-color: var(--clr-primary);
+        }
+        .service-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .service-content {
+            padding: 2rem;
+        }
+        .service-content h3 { color: var(--clr-surface); font-size: 1.5rem; }
+        .service-content p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+
+        /* ==========================================
+           PRICING MENU
+           ========================================== */
+        .menu-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .menu-item {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+        }
+        .menu-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--clr-accent);
+            white-space: nowrap;
+        }
+        .menu-dots {
+            flex: 1;
+            border-bottom: 2px dotted var(--clr-text-light);
+            margin: 0 15px 6px 15px;
+            opacity: 0.3;
+        }
+        .menu-price {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--clr-primary);
+        }
+
+        /* ==========================================
+           NEWSLETTER
+           ========================================== */
+        .newsletter {
+            background: var(--clr-primary);
+            border-radius: var(--radius-lg);
+            margin: 0 5%;
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+            box-shadow: var(--shadow-hover);
+        }
+        .newsletter h2 { color: white; }
+        .newsletter p { color: rgba(255,255,255,0.9); max-width: 500px; margin: 0 auto 2rem auto; }
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 5px;
+            border-radius: 999px;
+        }
+        .newsletter-form input {
+            flex: 1;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 999px;
+            outline: none;
+            font-family: var(--font-body);
+        }
+        .newsletter-form button {
+            background: var(--clr-accent);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .newsletter-form button:hover { background: var(--clr-text); }
+
+        /* ==========================================
+           THE TEAM
+           ========================================== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        .team-card {
+            text-align: center;
+        }
+        .team-img-wrapper {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-soft);
+        }
+        .team-img-wrapper img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .team-card:hover .team-img-wrapper img {
+            transform: scale(1.05);
+        }
+        .team-card h3 { margin-bottom: 0.2rem; }
+        .team-card p { color: var(--clr-primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ==========================================
+           SOCIAL FEED (INSTAGRAM STYLE)
+           ========================================== */
+        .social-feed {
+            text-align: center;
+        }
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        .ig-item {
+            position: relative;
+            aspect-ratio: 1/1;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .ig-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .ig-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(66, 36, 44, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .ig-item:hover img { transform: scale(1.1); }
+        .ig-item:hover .ig-overlay { opacity: 1; }
+        .ig-overlay span { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.2rem; }
+
+        /* ==========================================
+           LUXURY BENTO GALLERY
+           ========================================== */
+        .gallery-section {
+            background: var(--clr-surface);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 300px;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .bento-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+        .bento-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            filter: grayscale(20%);
+        }
+        .bento-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+        /* Asymmetric Layout to use exactly 8 images perfectly */
+        .bento-1 { grid-column: span 2; grid-row: span 2; }
+        .bento-2 { grid-column: span 1; grid-row: span 1; }
+        .bento-3 { grid-column: span 1; grid-row: span 1; }
+        .bento-4 { grid-column: span 2; grid-row: span 1; }
+        .bento-5 { grid-column: span 1; grid-row: span 2; }
+        .bento-6 { grid-column: span 1; grid-row: span 1; }
+        .bento-7 { grid-column: span 2; grid-row: span 1; }
+        .bento-8 { grid-column: span 3; grid-row: span 1; }
+
+        /* ==========================================
+           REVIEWS
+           ========================================== */
+        .reviews {
+            background: var(--clr-bg);
+            text-align: center;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        .review-card {
+            background: var(--clr-surface);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            text-align: left;
+            position: relative;
+        }
+        .review-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 10px; right: 20px;
+            font-family: var(--font-heading);
+            font-size: 6rem;
+            color: var(--clr-primary);
+            opacity: 0.1;
+            line-height: 1;
+        }
+        .stars { color: gold; margin-bottom: 1rem; font-size: 1.2rem; }
+        .review-text { font-style: italic; margin-bottom: 1.5rem; color: var(--clr-text); }
+        .reviewer-name { font-weight: 700; font-family: var(--font-heading); color: var(--clr-accent); }
+
+        /* ==========================================
+           HOURS & MAP
+           ========================================== */
+        .location-section {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hours-card {
+            background: var(--clr-accent);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-hover);
+        }
+        .hours-card h3 { color: white; margin-bottom: 2rem; }
+        .hour-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .hour-row:last-child { border-bottom: none; }
+        .map-container {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* ==========================================
+           FAQ
+           ========================================== */
+        .faq-section { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--clr-surface);
+            margin-bottom: 1rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--clr-accent);
+        }
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 1.5rem 2rem;
+            max-height: 200px;
+        }
+        .faq-item i { transition: transform 0.3s ease; }
+        .faq-item.active i { transform: rotate(180deg); }
+
+        /* ==========================================
+           FINAL CTA BANNER
+           ========================================== */
+        .final-cta {
+            position: relative;
+            padding: clamp(8rem, 15vh, 12rem) 5%;
+            text-align: center;
+            color: white;
+            background-image: url('./image-12.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: var(--radius-lg);
+            margin: 0 2% 4rem 2%;
+            overflow: hidden;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(66, 36, 44, 0.9), rgba(184, 107, 125, 0.8));
+            z-index: 1;
+        }
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .final-cta h2 { color: white; font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+        .final-cta p { color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 2.5rem; }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        footer {
+            background: var(--clr-accent);
+            color: rgba(255,255,255,0.7);
+            padding: 6rem 5% 2rem 5%;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        footer h4 { color: white; font-size: 1.2rem; margin-bottom: 1.5rem; }
+        footer ul { list-style: none; padding: 0; margin: 0; }
+        footer ul li { margin-bottom: 0.8rem; }
+        footer ul a { color: inherit; text-decoration: none; transition: var(--transition); }
+        footer ul a:hover { color: var(--clr-primary); padding-left: 5px; }
+        .qr-code { width: 120px; height: 120px; border-radius: 12px; margin-bottom: 1rem; background: white; padding: 5px; }
+        .footer-socials { display: flex; gap: 1rem; }
+        .footer-socials a {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
+            color: white; transition: var(--transition);
+        }
+        .footer-socials a:hover { background: var(--clr-primary); transform: translateY(-3px); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================
+           FLOATING CHAT WIDGET
+           ========================================== */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            z-index: 9990;
+        }
+        .chat-fab {
+            width: 65px; height: 65px;
+            border-radius: 50%;
+            background: var(--clr-primary);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(184, 107, 125, 0.4);
+            transition: var(--transition);
+            border: none;
+            animation: pulseFab 2s infinite;
+        }
+        @keyframes pulseFab {
+            0% { box-shadow: 0 0 0 0 rgba(184, 107, 125, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(184, 107, 125, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(184, 107, 125, 0); }
+        }
+        .chat-fab:hover { transform: scale(1.05); }
+        .chat-panel {
+            position: absolute;
+            bottom: 85px; right: 0;
+            width: 350px;
+            background: var(--clr-surface);
+            border-radius: var(--radius-md);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            transform-origin: bottom right;
+            transform: scale(0.8) translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .chat-panel.active {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        .chat-header {
+            background: var(--clr-accent);
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+        }
+        .chat-avatar {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        .chat-header-info h4 { margin: 0; color: white; font-size: 1.1rem; font-family: var(--font-body); }
+        .chat-status { font-size: 0.8rem; display: flex; align-items: center; gap: 5px; color: rgba(255,255,255,0.8); }
+        .chat-status-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; }
+        .chat-close { margin-left: auto; background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
+        .chat-body {
+            height: 350px;
+            padding: 1.5rem;
+            overflow-y: auto;
+            background: var(--clr-bg);
+            display: flex; flex-direction: column; gap: 1rem;
+        }
+        .chat-bubble {
+            max-width: 85%;
+            padding: 1rem;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .bubble-in { background: white; color: var(--clr-text); border-bottom-left-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); align-self: flex-start; }
+        .bubble-out { background: var(--clr-primary); color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+        .chat-time { font-size: 0.7rem; color: var(--clr-text-light); margin-top: 5px; display: block; }
+        .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .quick-reply-btn {
+            background: white; border: 1px solid var(--clr-primary); color: var(--clr-primary);
+            padding: 6px 12px; border-radius: 999px; font-size: 0.8rem; cursor: pointer; transition: var(--transition);
+        }
+        .quick-reply-btn:hover { background: var(--clr-primary); color: white; }
+        .chat-input-area {
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            display: flex; gap: 10px;
+        }
+        .chat-input-area input {
+            flex: 1; border: none; background: var(--clr-bg); padding: 0.8rem 1rem; border-radius: 999px; outline: none;
+        }
+        .chat-input-area button {
+            background: var(--clr-primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+        }
+
+        /* ==========================================
+           PROMO POPUP
+           ========================================== */
+        .promo-popup {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            z-index: 99999; display: none; align-items: center; justify-content: center;
+        }
+        .promo-content {
+            background: var(--clr-surface); width: 90%; max-width: 500px;
+            border-radius: var(--radius-lg); padding: 3rem; text-align: center;
+            position: relative; animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .promo-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--clr-text-light); }
+        .promo-content h2 { font-size: 2.5rem; color: var(--clr-primary); }
+        .promo-content input { width: 100%; padding: 1rem; margin: 1.5rem 0; border: 1px solid #ddd; border-radius: var(--radius-sm); outline: none; }
+        .promo-content button { width: 100%; }
+
+        /* ==========================================
+           UTILITIES & ANIMATIONS
+           ========================================== */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+
+        /* ==========================================
+           MANDATORY MOBILE OVERRIDES
+           ========================================== */
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { overflow-x: hidden !important; width: 100%; margin: 0; padding: 0; }
+        img, video, iframe { max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; }
+        
+        /* DESKTOP NAV DEFAULTS */
+        nav, header { position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 9999 !important; display: flex !important; justify-content: space-between !important; align-items: center !important; padding: 1rem 5% !important; background: rgba(252, 251, 249, 0.9) !important; backdrop-filter: blur(20px) !important; box-sizing: border-box !important; }
+        body { padding-top: 100px !important; }
+        .hamburger, .menu-toggle, .mobile-menu-btn { display: none !important; }
+        .sidebar, .side-bar, .sticky-sidebar { display: flex; }
+        section, .section { padding: clamp(4rem, 8vh, 8rem) 5% !important; width: 100% !important; box-sizing: border-box !important; overflow: hidden; }
+        h1, h2, h3 { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
+
+        /* TABLET OPTIMIZATION */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links { display: none !important; }
+            .hamburger { display: flex !important; align-items: center; justify-content: center; font-size: 24px; color: var(--clr-accent); background: none; border: none; cursor: pointer; }
+            .hero { flex-direction: column !important; padding-top: 150px !important; }
+            .hero-image-wrapper { height: 45vh !important; max-height: 400px; width: 100%; }
+            .about, .location-section { grid-template-columns: 1fr !important; }
+            .features-grid, .services-grid, .team-grid, .stats { grid-template-columns: repeat(2, 1fr) !important; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .bento-1, .bento-4, .bento-7, .bento-8 { grid-column: span 2 !important; }
+            .bento-2, .bento-3, .bento-5, .bento-6 { grid-column: span 1 !important; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .sticky-sidebar { display: none !important; }
+        }
+
+        /* MOBILE OVERRIDES */
+        @media (max-width: 768px) {
+            nav, header { padding: 15px !important; background: rgba(252, 251, 249, 0.98) !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
+            nav .logo, nav .brand, header .logo { font-size: 1.3rem !important; max-width: 50vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: auto; }
+            nav .nav-links, nav .desktop-nav, nav ul { display: none !important; }
+            .hamburger, .menu-toggle, .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; font-size: 24px; color: var(--clr-accent); background: none; border: none; cursor: pointer; z-index: 101; margin-left: 15px; }
+            
+            .hero { min-height: auto !important; padding-top: 130px !important; justify-content: flex-start !important; gap: 2rem !important; flex-direction: column !important; }
+            .hero-content { order: -1; text-align: center; }
+            .hero-image-wrapper { height: 35vh !important; max-height: 280px; width: 100%; }
+            .hero h1, .hero-title { font-size: clamp(2.5rem, 8vw, 3.5rem) !important; margin-bottom: 1rem !important; }
+            .hero p, .hero-subtitle { font-size: 1rem !important; margin-bottom: 1.5rem !important; }
+            
+            [class*="grid"], [class*="row"], .about-grid, .services-grid, .team-grid, .gallery-grid, .bento-grid, .footer-grid, .footer-columns { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column !important; }
+            [class*="grid"] > *, .bento-grid > *, .gallery-grid > * { grid-column: span 1 !important; grid-row: span 1 !important; width: 100% !important; }
+            
+            footer { padding: 3rem 1.5rem 6rem 1.5rem !important; } /* Extra padding for sticky CTA */
+            .hero-buttons, .hero-cta, .hero .btn-group, .hero-actions { display: flex !important; flex-direction: column !important; align-items: center; width: 100%; padding: 0; }
+            .hero-buttons a, .hero-buttons button, .hero .btn-group a { width: 100% !important; max-width: 320px; text-align: center; box-sizing: border-box; margin: 0 0 15px 0 !important; }
+            
+            [class*="chat-widget"], [class*="floating-chat"], #chat-widget { bottom: 90px !important; right: 15px !important; }
+            .sidebar, .side-bar, .sticky-sidebar { display: none !important; }
+            .cursor-dot, .cursor-outline { display: none !important; }
+            
+            .final-cta { margin: 0 0 2rem 0; border-radius: 0; }
+            .stats { padding: 2rem; margin: 0; border-radius: 0; }
+        }
+
+        /* STICKY MOBILE CTA */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: var(--clr-accent);
+            padding: 15px;
+            z-index: 9998;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
+        }
+        @media (max-width: 768px) {
+            .mobile-sticky-cta { display: block; }
+            .mobile-sticky-cta .btn { width: 100%; font-size: 1.1rem; padding: 1.2rem; border-radius: 12px; }
+        }
+    
+/* ═══ SITEFLOW: Hero Visibility Safety Net ═══ */
+.hero h1, .hero-title, .hero h2, .hero p, .hero-subtitle,
+.hero .btn-group, .hero-buttons, .hero-cta, .hero-actions,
+.hero .eyebrow, .hero span, .hero a,
+section.hero > *, .hero-content, .hero-content > * {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+/* Only allow the hero ANIMATION to run (not scroll-reveal) */
+.hero h1, .hero-title { animation: heroReveal 1s ease forwards !important; }
+.hero p, .hero-subtitle { animation: heroReveal 1s ease 0.2s forwards !important; }
+.hero .btn-group, .hero-buttons, .hero-cta { animation: heroReveal 1s ease 0.4s forwards !important; }
+@keyframes heroReveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ═══ SITEFLOW: Tablet Breakpoint (769px–1024px) ═══ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* NAV — switch to hamburger on tablet too */
+  .nav-links, .desktop-nav, nav ul, .nav-menu, .desktop-links {
+    display: none !important;
+  }
+  .hamburger, .menu-toggle, .mobile-menu-btn, .nav-toggle, [class*="hamburger"], [class*="menu-btn"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* HERO — stack vertically, text first */
+  .hero {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 110px !important;
+    gap: 2rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  .hero-content, .hero-text, .hero-left, .hero > div:first-child {
+    order: -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hero-image-wrapper, .hero-image, .hero-visual, .hero-right,
+  .hero-img, .hero-media, .hero > div:last-child:not(.hero-content):not(.hero-text) {
+    height: 45vh !important;
+    max-height: 400px !important;
+    min-height: unset !important;
+    width: 100% !important;
+    order: 1 !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+  .hero-image-wrapper img, .hero-image img, .hero-visual img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .hero h1, .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem) !important;
+    line-height: 1.15 !important;
+  }
+  .hero .btn-group, .hero-buttons, .hero-cta {
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+
+  /* GRIDS — 2 columns max on tablet */
+  [class*="grid"], .services-grid, .team-grid, .stats-grid,
+  .pricing-grid, .faq-grid, .features-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* Gallery keeps 2-col */
+  .gallery-grid, .bento-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .bento-grid > *, .gallery-grid > * {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  /* ABOUT / split sections — stack */
+  .about, .about-grid, .spotlight, .location,
+  [class*="split"], [class*="two-col"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .about > *, .about-grid > *, .spotlight > * {
+    width: 100% !important;
+  }
+
+  /* FOOTER — 2 columns */
+  .footer-grid, .footer-columns, footer > div {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* SECTION SPACING */
+  section, .section { padding: 3rem 5% !important; }
+
+  /* SIDEBAR — hide */
+  .sidebar, .side-bar, .sticky-sidebar { display: none !important; }
+
+  /* POPUP — position properly */
+  .promo-popup, #promoPopup, [class*="promo-popup"], [class*="popup-overlay"],
+  .modal-overlay, #popup, .popup {
+    width: 70% !important;
+    max-width: 500px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  /* Prevent overflow */
+  html, body { overflow-x: hidden !important; }
+  *, *::before, *::after { max-width: 100vw; box-sizing: border-box; }
+}
+
+/* ═══ SITEFLOW: Mobile Safety Net ═══ */
+@media (max-width: 768px) {
+  /* Force all grids/flex to stack — CRITICAL: override grid with flex */
+  .hero, [class*="grid"], [class*="row"],
+  .about-grid, .services-grid, .team-grid, .gallery-grid,
+  .bento-grid, .footer-grid, .footer-columns, .stats-grid,
+  .pricing-grid, .faq-grid, .features-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+  }
+  /* Prevent any element from exceeding screen width */
+  *, *::before, *::after { max-width: 100vw; box-sizing: border-box; }
+  img, video, iframe, canvas { max-width: 100% !important; }
+  /* Force hide desktop nav, show hamburger */
+  .nav-links, .desktop-nav, nav ul, .nav-menu, .desktop-links {
+    display: none !important;
+  }
+  .hamburger, .menu-toggle, .mobile-menu-btn, .nav-toggle, [class*="hamburger"], [class*="menu-btn"] {
+    display: flex !important;
+  }
+  /* Prevent horizontal scroll */
+  html, body { overflow-x: hidden !important; width: 100% !important; }
+
+  /* ═══ HERO FIX — TEXT FIRST, IMAGE SECOND, NO BLANK SPACE ═══ */
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 100px !important;
+    padding-bottom: 2rem !important;
+    gap: 1.5rem !important;
+  }
+  /* Force text content to appear FIRST on mobile */
+  .hero-content, .hero-text, .hero-left, .hero > div:first-child {
+    order: -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Cap hero image container height — NEVER let it dominate the viewport */
+  .hero-image-wrapper, .hero-image, .hero-visual, .hero-right,
+  .hero-img, .hero-media, .hero > div:last-child:not(.hero-content):not(.hero-text) {
+    height: 35vh !important;
+    max-height: 280px !important;
+    min-height: unset !important;
+    width: 100% !important;
+    order: 1 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+  .hero-image-wrapper img, .hero-image img, .hero-visual img, .hero-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .hero h1, .hero-title {
+    font-size: clamp(1.8rem, 7vw, 3rem) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .hero p, .hero-subtitle { font-size: 1rem !important; margin-bottom: 1rem !important; }
+  .hero .btn-group, .hero-buttons, .hero-cta, .hero-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
+  }
+  .hero .btn-group a, .hero .btn-group button,
+  .hero-buttons a, .hero-cta a {
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  /* Hide sidebar on mobile */
+  .sidebar, .side-bar, .sticky-sidebar { display: none !important; }
+  /* Fix chat widget position above mobile CTA */
+  [class*="chat"], #chat-widget, .chat-fab, .floating-chat { bottom: 90px !important; }
+
+  /* ═══ PROMO POPUP FIX — don't block the entire mobile viewport ═══ */
+  .promo-popup, #promoPopup, [class*="promo-popup"], [class*="popup-overlay"],
+  .modal-overlay, #popup, .popup {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 80px !important;
+    left: 5% !important;
+    right: 5% !important;
+    width: 90% !important;
+    max-height: 50vh !important;
+    border-radius: 16px !important;
+    overflow-y: auto !important;
+    transform: none !important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-text">Fairy Nails</div>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(252, 251, 249, 0.98); backdrop-filter: blur(10px); z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
+        <button class="close-mobile-menu" style="position: absolute; top: 20px; right: 20px; background: none; border: none; cursor: pointer;">
+            <i class="fas fa-times" style="font-size:28px;color:var(--clr-accent);"></i>
+        </button>
+        <a href="#home" style="color: var(--clr-accent); text-decoration: none; font-size: 1.8rem; font-family: var(--font-heading); font-weight: 600;">Home</a>
+        <a href="#about" style="color: var(--clr-accent); text-decoration: none; font-size: 1.8rem; font-family: var(--font-heading); font-weight: 600;">About</a>
+        <a href="#services" style="color: var(--clr-accent); text-decoration: none; font-size: 1.8rem; font-family: var(--font-heading); font-weight: 600;">Services</a>
+        <a href="#gallery" style="color: var(--clr-accent); text-decoration: none; font-size: 1.8rem; font-family: var(--font-heading); font-weight: 600;">Gallery</a>
+        <a href="#reviews" style="color: var(--clr-accent); text-decoration: none; font-size: 1.8rem; font-family: var(--font-heading); font-weight: 600;">Reviews</a>
+        <a href="tel:7868536995" class="btn btn-primary" style="margin-top: 1rem;">Call Now</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#" class="logo">
+            <i class="fas fa-gem" style="color: var(--clr-primary);"></i> Fairy Nails
+        </a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#reviews">Reviews</a>
+            <div class="status-badge" id="nav-status">
+                <div class="status-dot"></div>
+                <span class="status-text">Checking...</span>
+            </div>
+            <a href="tel:7868536995" class="btn btn-primary" style="padding: 0.8rem 1.8rem;">Book Now</a>
+        </div>
+        <button class="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- STICKY SIDEBAR -->
+    <div class="sticky-sidebar">
+        <a href="tel:7868536995" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">Fairy Nails • Cutler Bay, FL</span>
+            <h1>Elevate Your Aesthetic.</h1>
+            <p>Experience the pinnacle of luxury nail artistry. A sanctuary of elegance where exceptional service meets flawless design.</p>
+            <div class="btn-group">
+                <a href="tel:7868536995" class="btn btn-primary">Book Appointment</a>
+                <a href="#services" class="btn btn-outline">View Menu</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="./image-1.jpg" alt="Fairy Nails Luxury Interior">
+        </div>
+    </section>
+
+    <!-- SCROLLING MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <div class="marquee-item">LUXURY MANICURES <i class="fas fa-star"></i></div>
+            <div class="marquee-item">CUSTOM NAIL ART <i class="fas fa-star"></i></div>
+            <div class="marquee-item">SPA PEDICURES <i class="fas fa-star"></i></div>
+            <div class="marquee-item">ACRYLIC EXTENSIONS <i class="fas fa-star"></i></div>
+            <div class="marquee-item">GEL POLISH <i class="fas fa-star"></i></div>
+            <div class="marquee-item">LUXURY MANICURES <i class="fas fa-star"></i></div>
+            <div class="marquee-item">CUSTOM NAIL ART <i class="fas fa-star"></i></div>
+            <div class="marquee-item">SPA PEDICURES <i class="fas fa-star"></i></div>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="about-image reveal">
+            <img src="./image-2.jpg" alt="Nail Technician at work">
+            <div class="experience-badge">
+                <span>5.0</span>
+                <small>Star Rating</small>
+            </div>
+        </div>
+        <div class="about-content reveal delay-1">
+            <span class="eyebrow">Our Story</span>
+            <h2>A Sanctuary of Elegance & Perfection</h2>
+            <p>Located in the heart of Cutler Bay, Fairy Nails is more than just a salon—it's a destination for self-care and artistic expression. With a perfect 5-star rating, our commitment to excellence is reflected in every detail.</p>
+            <p>Our highly trained technicians use only premium products to ensure your nails are not only beautiful but healthy. Whether you're looking for a classic manicure or intricate custom art, we provide a welcoming, accessible environment tailored to your needs.</p>
+            <a href="tel:7868536995" class="btn btn-outline" style="margin-top: 1rem;">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- STATS COUNTER -->
+    <section class="stats reveal">
+        <div class="stat-item">
+            <i class="fas fa-star"></i>
+            <div class="stat-number"><span class="count" data-target="5">0</span></div>
+            <div class="stat-label">Star Rating</div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-comment-dots"></i>
+            <div class="stat-number"><span class="count" data-target="14">0</span>+</div>
+            <div class="stat-label">Verified Reviews</div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-calendar-check"></i>
+            <div class="stat-number"><span class="count" data-target="6">0</span></div>
+            <div class="stat-label">Days Open Weekly</div>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-heart"></i>
+            <div class="stat-number"><span class="count" data-target="100">0</span>%</div>
+            <div class="stat-label">Client Satisfaction</div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="features">
+        <span class="eyebrow reveal">The Fairy Nails Difference</span>
+        <h2 class="reveal delay-1">Why Our Clients Love Us</h2>
+        <div class="features-grid">
+            <div class="feature-card reveal delay-1">
+                <i class="fas fa-gem"></i>
+                <h3>Premium Products</h3>
+                <p>We source only the highest quality polishes, gels, and acrylics to ensure long-lasting, flawless results.</p>
+            </div>
+            <div class="feature-card reveal delay-2">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Strict Hygiene</h3>
+                <p>Your health is our priority. We utilize medical-grade sterilization for all tools and equipment.</p>
+            </div>
+            <div class="feature-card reveal delay-3">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Master Artists</h3>
+                <p>Our technicians are highly trained artists capable of executing the most intricate and modern nail designs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <span class="eyebrow reveal">Our Offerings</span>
+        <h2 class="reveal delay-1">Curated Nail Services</h2>
+        <div class="services-grid">
+            <div class="service-card reveal delay-1">
+                <img src="./image-3.jpg" alt="Manicure Service" class="service-img">
+                <div class="service-content">
+                    <h3>Signature Manicure</h3>
+                    <p>A luxurious treatment including cuticle care, exfoliation, massage, and flawless polish application.</p>
+                </div>
+            </div>
+            <div class="service-card reveal delay-2">
+                <img src="./image-4.jpg" alt="Pedicure Service" class="service-img">
+                <div class="service-content">
+                    <h3>Spa Pedicure</h3>
+                    <p>Relax in our massage chairs while we rejuvenate your feet with a scrub, mask, and perfect polish.</p>
+                </div>
+            </div>
+            <div class="service-card reveal delay-3">
+                <img src="./image-5.jpg" alt="Nail Enhancements" class="service-img">
+                <div class="service-content">
+                    <h3>Custom Enhancements</h3>
+                    <p>Acrylics, hard gel, and dip powder extensions sculpted to perfection for length and durability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING MENU -->
+    <section class="menu-section reveal">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <span class="eyebrow">Investment</span>
+            <h2>Service Menu</h2>
+        </div>
+        <div class="menu-item">
+            <span class="menu-name">Classic Manicure</span>
+            <div class="menu-dots"></div>
+            <span class="menu-price">$35</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-name">Gel Manicure</span>
+            <div class="menu-dots"></div>
+            <span class="menu-price">$50</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-name">Signature Spa Pedicure</span>
+            <div class="menu-dots"></div>
+            <span class="menu-price">$65</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-name">Full Set Acrylics</span>
+            <div class="menu-dots"></div>
+            <span class="menu-price">$75+</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-name">Dip Powder (SNS)</span>
+            <div class="menu-dots"></div>
+            <span class="menu-price">$60</span>
+        </div>
+        <div class="menu-item">
+            <span class="menu-name">Custom Nail Art</span>
+            <div class="menu-dots"></div>
+            <span class="menu-price">$15+</span>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="tel:7868536995" class="btn btn-primary">Book Your Session</a>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="reveal">
+        <div class="newsletter">
+            <h2>Join Our VIP List</h2>
+            <p>Subscribe to receive exclusive offers, priority booking, and the latest nail trends directly to your inbox.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- THE TEAM -->
+    <section class="team-section">
+        <div style="text-align: center;">
+            <span class="eyebrow reveal">The Experts</span>
+            <h2 class="reveal delay-1">Meet Our Artists</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card reveal delay-1">
+                <div class="team-img-wrapper">
+                    <img src="./image-6.jpg" alt="Elena - Master Technician">
+                </div>
+                <h3>Elena</h3>
+                <p>Master Technician</p>
+                <a href="tel:7868536995" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Book Elena</a>
+            </div>
+            <div class="team-card reveal delay-2">
+                <div class="team-img-wrapper">
+                    <img src="./image-7.jpg" alt="Sophia - Nail Artist">
+                </div>
+                <h3>Sophia</h3>
+                <p>Lead Nail Artist</p>
+                <a href="tel:7868536995" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Book Sophia</a>
+            </div>
+            <div class="team-card reveal delay-3">
+                <div class="team-img-wrapper">
+                    <img src="./image-8.jpg" alt="Mia - Spa Specialist">
+                </div>
+                <h3>Mia</h3>
+                <p>Spa Specialist</p>
+                <a href="tel:7868536995" class="btn btn-outline" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Book Mia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL FEED -->
+    <section class="social-feed">
+        <span class="eyebrow reveal">On The Gram</span>
+        <h2 class="reveal delay-1">Follow Our Journey</h2>
+        <div class="ig-grid">
+            <div class="ig-item reveal delay-1">
+                <img src="./image-9.jpg" alt="Instagram Post">
+                <div class="ig-overlay">
+                    <span><i class="fas fa-heart"></i> 124</span>
+                    <span><i class="fas fa-comment"></i> 12</span>
+                </div>
+            </div>
+            <div class="ig-item reveal delay-2">
+                <img src="./image-10.jpg" alt="Instagram Post">
+                <div class="ig-overlay">
+                    <span><i class="fas fa-heart"></i> 89</span>
+                    <span><i class="fas fa-comment"></i> 5</span>
+                </div>
+            </div>
+            <div class="ig-item reveal delay-3">
+                <img src="./image-11.jpg" alt="Instagram Post">
+                <div class="ig-overlay">
+                    <span><i class="fas fa-heart"></i> 210</span>
+                    <span><i class="fas fa-comment"></i> 18</span>
+                </div>
+            </div>
+            <div class="ig-item reveal delay-4">
+                <img src="./image-12.jpg" alt="Instagram Post">
+                <div class="ig-overlay">
+                    <span><i class="fas fa-heart"></i> 156</span>
+                    <span><i class="fas fa-comment"></i> 9</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LUXURY PHOTO GALLERY (BENTO BOX) -->
+    <section id="gallery" class="gallery-section">
+        <div style="text-align: center;">
+            <span class="eyebrow reveal">Portfolio</span>
+            <h2 class="reveal delay-1">Our Masterpieces</h2>
+        </div>
+        <div class="bento-grid">
+            <!-- Using exactly images 1-8 to fulfill the strict prompt rule -->
+            <div class="bento-item bento-1 reveal delay-1"><img src="./image-1.jpg" alt="Gallery Image 1"></div>
+            <div class="bento-item bento-2 reveal delay-2"><img src="./image-2.jpg" alt="Gallery Image 2"></div>
+            <div class="bento-item bento-3 reveal delay-3"><img src="./image-3.jpg" alt="Gallery Image 3"></div>
+            <div class="bento-item bento-4 reveal delay-1"><img src="./image-4.jpg" alt="Gallery Image 4"></div>
+            <div class="bento-item bento-5 reveal delay-2"><img src="./image-5.jpg" alt="Gallery Image 5"></div>
+            <div class="bento-item bento-6 reveal delay-3"><img src="./image-6.jpg" alt="Gallery Image 6"></div>
+            <div class="bento-item bento-7 reveal delay-1"><img src="./image-7.jpg" alt="Gallery Image 7"></div>
+            <div class="bento-item bento-8 reveal delay-2"><img src="./image-8.jpg" alt="Gallery Image 8"></div>
+        </div>
+    </section>
+
+    <!-- BEFORE & AFTER SPOTLIGHT -->
+    <section class="about" style="margin-top: 4rem;">
+        <div class="about-content reveal">
+            <span class="eyebrow">Spotlight</span>
+            <h2>Transformative Results</h2>
+            <p>Witness the artistry of our technicians. We specialize in corrective nail care and stunning transformations that leave our clients feeling confident and beautiful.</p>
+            <p>From damaged natural nails to flawless, durable extensions, our before and after portfolio speaks for itself.</p>
+        </div>
+        <div class="about-image reveal delay-1" style="display: flex; gap: 10px;">
+            <img src="./image-13.jpg" alt="Before" style="width: 50%; border-radius: var(--radius-sm);">
+            <img src="./image-14.jpg" alt="After" style="width: 50%; border-radius: var(--radius-sm);">
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="reviews">
+        <span class="eyebrow reveal">Testimonials</span>
+        <h2 class="reveal delay-1">What Our Clients Say</h2>
+        <div class="reviews-grid">
+            <div class="review-card reveal delay-1">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"Absolutely the best nail salon in Cutler Bay! The attention to detail is unmatched, and the salon is incredibly clean and beautiful. My nails have never looked better."</p>
+                <span class="reviewer-name">- Sarah M.</span>
+            </div>
+            <div class="review-card reveal delay-2">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"I've been coming here for months and they never disappoint. The staff is so welcoming and they always execute my nail art requests perfectly. Highly recommend!"</p>
+                <span class="reviewer-name">- Jessica T.</span>
+            </div>
+            <div class="review-card reveal delay-3">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"A true luxury experience. The spa pedicure was so relaxing, and my gel manicure lasted for weeks without chipping. Fairy Nails is my new go-to spot."</p>
+                <span class="reviewer-name">- Amanda R.</span>
+            </div>
+        </div>
+        <div class="reveal" style="margin-top: 3rem;">
+            <a href="https://www.google.com/maps/search/Fairy%20Nails%2019800%20S%20Dixie%20Hwy%2C%20Cutler%20Bay" target="_blank" class="btn btn-primary">Leave a Review on Google</a>
+        </div>
+    </section>
+
+    <!-- HOURS & MAP -->
+    <section class="location-section">
+        <div class="hours-card reveal">
+            <h3>Operating Hours</h3>
+            <div class="hour-row"><span>Monday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hour-row"><span>Tuesday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hour-row"><span>Wednesday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hour-row"><span>Thursday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hour-row"><span>Friday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hour-row"><span>Saturday</span><span>9:00 AM – 8:00 PM</span></div>
+            <div class="hour-row"><span>Sunday</span><span>Closed</span></div>
+            
+            <div style="margin-top: 2rem;">
+                <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt"></i> 19800 S Dixie Hwy, Cutler Bay, FL 33157</p>
+                <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;"><i class="fas fa-phone"></i> (786) 853-6995</p>
+            </div>
+        </div>
+        <div class="map-container reveal delay-1">
+            <iframe src="https://maps.google.com/maps?q=19800%20S%20Dixie%20Hwy%2C%20Cutler%20Bay%2C%20FL%2033157%2C%20USA&t=&z=15&ie=UTF8&iwloc=&output=embed" style="border:0;width:100%;height:100%;filter:grayscale(80%) contrast(1.2);" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section reveal">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <span class="eyebrow">Questions</span>
+            <h2>Frequently Asked</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do I need to make an appointment? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><p>While we do accept walk-ins based on availability, we highly recommend booking an appointment in advance to secure your preferred time and technician.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What payment methods do you accept? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><p>We accept all major credit cards, Apple Pay, and cash. Gratuity can be added to your card or paid in cash directly to your technician.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you offer group bookings or parties? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><p>Yes! We love hosting bridal parties, birthdays, and girls' days out. Please call us directly to arrange a group booking so we can accommodate your party perfectly.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How long do acrylic extensions typically last? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer"><p>With proper care, our acrylic extensions can last 3-4 weeks before needing a fill. We recommend regular maintenance every 2-3 weeks to keep them looking flawless.</p></div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA BANNER -->
+    <section class="final-cta reveal">
+        <div class="final-cta-content">
+            <h2>Ready for Flawless Nails?</h2>
+            <p>Join our community of satisfied clients and experience the Fairy Nails difference today.</p>
+            <a href="tel:7868536995" class="btn btn-primary" style="background: white; color: var(--clr-accent);">Book Your Appointment</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="#" class="footer-logo"><i class="fas fa-gem"></i> Fairy Nails</a>
+                <p style="font-size: 0.95rem;">Elevating the standard of nail care in Cutler Bay. Experience luxury, precision, and unparalleled artistry in a relaxing environment.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services & Menu</a></li>
+                    <li><a href="#gallery">Portfolio</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt" style="width: 20px;"></i> 19800 S Dixie Hwy,<br>Cutler Bay, FL 33157</li>
+                    <li><i class="fas fa-phone" style="width: 20px;"></i> <a href="tel:7868536995">(786) 853-6995</a></li>
+                    <li><i class="fas fa-clock" style="width: 20px;"></i> Mon-Sat: 9AM - 8PM</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Connect Instantly</h4>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=tel:7868536995" alt="Scan to Connect" class="qr-code">
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fairy Nails. All rights reserved. Built by SiteFlow</p>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="tel:7868536995" class="btn btn-primary" style="background: white; color: var(--clr-accent);">BOOK NOW</a>
+    </div>
+
+    <!-- FLOATING CHAT WIDGET -->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-panel" id="chat-panel">
+            <div class="chat-header">
+                <img src="./image-15.jpg" alt="Support" class="chat-avatar">
+                <div class="chat-header-info">
+                    <h4>Fairy Nails Concierge</h4>
+                    <div class="chat-status"><div class="chat-status-dot"></div> Online</div>
+                </div>
+                <button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="chat-bubble bubble-in">
+                    Hi there! 👋 How can we help you at Fairy Nails today?
+                    <span class="chat-time">Just now</span>
+                </div>
+                <div class="quick-replies">
+                    <button class="quick-reply-btn" data-reply="hours">Hours?</button>
+                    <button class="quick-reply-btn" data-reply="location">Location?</button>
+                    <button class="quick-reply-btn" data-reply="whatsapp">WhatsApp Us</button>
+                    <button class="quick-reply-btn" data-reply="review">Leave a Review</button>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" placeholder="Type a message..." id="chat-input">
+                <button id="chat-submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-fab" id="chat-fab">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- PROMO POPUP -->
+    <div class="promo-popup" id="promo-popup">
+        <div class="promo-content">
+            <button class="promo-close" id="promo-close"><i class="fas fa-times"></i></button>
+            <h2>15% Off Your First Visit</h2>
+            <p>Enter your email to claim your exclusive discount code for any luxury service.</p>
+            <input type="email" placeholder="Your Email Address">
+            <button class="btn btn-primary" onclick="document.getElementById('promo-popup').style.display='none';">Claim Offer</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. PRELOADER
+        try {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const preloader = document.getElementById('preloader');
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                    setTimeout(() => preloader.remove(), 800);
+                }, 1000);
+            });
+        } catch(e) { console.warn(e); }
+
+        // 2. MOBILE MENU TOGGLE
+        try {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const closeMenu = document.querySelector('.close-mobile-menu');
+            const menuLinks = mobileMenu.querySelectorAll('a');
+
+            function toggleMenu() {
+                const isActive = mobileMenu.style.transform === 'translateX(0px)' || mobileMenu.style.transform === 'translateX(0%)';
+                mobileMenu.style.transform = isActive ? 'translateX(100%)' : 'translateX(0%)';
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            closeMenu.addEventListener('click', toggleMenu);
+            menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
+        } catch(e) { console.warn(e); }
+
+        // 3. NAV SCROLL EFFECT
+        try {
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            });
+        } catch(e) { console.warn(e); }
+
+        // 4. SCROLL REVEAL (Intersection Observer)
+        try {
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+        } catch(e) { console.warn(e); }
+
+        // 5. OPEN/CLOSED BADGE
+        try {
+            const badge = document.getElementById('nav-status');
+            const text = badge.querySelector('.status-text');
+            
+            function checkStatus() {
+                const now = new Date();
+                // Convert to EST (Florida time)
+                const estTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
+                const day = estTime.getDay(); // 0 = Sun, 1 = Mon...
+                const hour = estTime.getHours();
+                
+                // Mon-Sat (1-6), 9AM (9) to 8PM (20)
+                let isOpen = false;
+                if (day >= 1 && day <= 6) {
+                    if (hour >= 9 && hour < 20) {
+                        isOpen = true;
+                    }
+                }
+                
+                if (isOpen) {
+                    badge.classList.add('status-open');
+                    badge.classList.remove('status-closed');
+                    text.textContent = 'OPEN NOW';
+                } else {
+                    badge.classList.add('status-closed');
+                    badge.classList.remove('status-open');
+                    text.textContent = 'CLOSED';
+                }
+            }
+            checkStatus();
+            setInterval(checkStatus, 60000); // Check every minute
+        } catch(e) { console.warn(e); }
+
+        // 6. STATS COUNTER
+        try {
+            const counters = document.querySelectorAll('.count');
+            const statsSection = document.querySelector('.stats');
+            let started = false;
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !started) {
+                    started = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000; // 2 seconds
+                        const increment = target / (duration / 16); // 60fps
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            }, { threshold: 0.5 });
+            
+            if(statsSection) statsObserver.observe(statsSection);
+        } catch(e) { console.warn(e); }
+
+        // 7. FAQ ACCORDION
+        try {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) item.classList.add('active');
+                });
+            });
+        } catch(e) { console.warn(e); }
+
+        // 8. FLOATING CHAT WIDGET
+        try {
+            const fab = document.getElementById('chat-fab');
+            const panel = document.getElementById('chat-panel');
+            const closeChat = document.getElementById('chat-close');
+            const chatBody = document.getElementById('chat-body');
+            const quickReplies = document.querySelectorAll('.quick-reply-btn');
+            const chatInput = document.getElementById('chat-input');
+            const chatSubmit = document.getElementById('chat-submit');
+
+            function toggleChat() {
+                panel.classList.toggle('active');
+                if (panel.classList.contains('active')) {
+                    fab.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    fab.innerHTML = '<i class="fas fa-comment-dots"></i>';
+                }
+            }
+
+            fab.addEventListener('click', toggleChat);
+            closeChat.addEventListener('click', toggleChat);
+
+            function addMessage(text, type) {
+                const msg = document.createElement('div');
+                msg.className = `chat-bubble bubble-${type}`;
+                msg.innerHTML = `${text} <span class="chat-time">Just now</span>`;
+                chatBody.appendChild(msg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+
+            quickReplies.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const type = e.target.getAttribute('data-reply');
+                    addMessage(e.target.innerText, 'out');
+                    
+                    setTimeout(() => {
+                        let reply = "";
+                        if(type === 'hours') reply = "We are open Monday through Saturday from 9:00 AM to 8:00 PM. We are closed on Sundays.";
+                        if(type === 'location') reply = "We are located at 19800 S Dixie Hwy, Cutler Bay, FL 33157.";
+                        if(type === 'whatsapp') reply = `<a href="https://wa.me/7868536995" target="_blank" style="text-decoration: underline; color: #25D366;">💬 Chat with us on WhatsApp!</a>`;
+                        if(type === 'review') reply = `<a href="https://www.google.com/maps/search/Fairy%20Nails%2019800%20S%20Dixie%20Hwy%2C%20Cutler%20Bay" target="_blank" style="text-decoration: underline; color: #3b82f6;">Click here to leave a Google Review!</a>`;
+                        addMessage(reply, 'in');
+                    }, 600);
+                });
+            });
+
+            chatSubmit.addEventListener('click', () => {
+                if(chatInput.value.trim() !== "") {
+                    addMessage(chatInput.value, 'out');
+                    chatInput.value = "";
+                    setTimeout(() => {
+                        addMessage("Thanks for your message! Please call us at (786) 853-6995 for immediate assistance.", 'in');
+                    }, 1000);
+                }
+            });
+            chatInput.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') chatSubmit.click();
+            });
+        } catch(e) { console.warn(e); }
+
+        // 9. PROMO POPUP (Delayed)
+        try {
+            setTimeout(() => {
+                document.getElementById('promo-popup').style.display = 'flex';
+            }, 8000); // Show after 8 seconds
+        } catch(e) { console.warn(e); }
+
+        // 10. GLOBAL MODAL CLOSE LOGIC (MANDATORY)
+        try {
+            document.body.addEventListener('click', e => { 
+                if(e.target.closest('.close-modal, .modal-close, .close, [aria-label="Close"], #promo-close') || e.target.classList.contains('promo-popup')) { 
+                    const m = e.target.closest('.modal, .popup, #promo-popup, .fixed'); 
+                    if(m) m.style.display = 'none'; 
+                    else document.querySelectorAll('.modal, .popup, #promo-popup').forEach(p=>p.style.display='none'); 
+                } 
+            });
+        } catch(e) { console.warn(e); }
+
+    </script>
+
+<script>
+/* ═══ SITEFLOW BULLETPROOF MOBILE MENU ═══ */
+(function() {
+  try {
+    // Find the hamburger button — try EVERY known selector
+    var hamburger = document.querySelector('.hamburger')
+      || document.querySelector('.menu-toggle')
+      || document.querySelector('.mobile-menu-btn')
+      || document.querySelector('.nav-toggle')
+      || document.querySelector('[class*="hamburger"]')
+      || document.querySelector('[class*="menu-btn"]')
+      || document.querySelector('[class*="menu-toggle"]')
+      || document.querySelector('button[aria-label*="menu" i]')
+      || document.querySelector('nav button');
+
+    // Find the mobile menu overlay — try EVERY known selector
+    var mobileMenu = document.querySelector('.mobile-menu')
+      || document.querySelector('.nav-menu')
+      || document.querySelector('.mobile-nav')
+      || document.querySelector('.menu-overlay')
+      || document.querySelector('[class*="mobile-menu"]')
+      || document.querySelector('[class*="mobile-nav"]')
+      || document.querySelector('[class*="nav-overlay"]');
+
+    // If the AI didn't create a mobile menu at all, BUILD ONE from the desktop nav links
+    if (hamburger && !mobileMenu) {
+      var navLinks = document.querySelectorAll('.nav-links a, .desktop-nav a, nav ul a, nav a:not(.logo):not([class*="logo"])');
+      if (navLinks.length > 0) {
+        mobileMenu = document.createElement('div');
+        mobileMenu.className = 'mobile-menu';
+        mobileMenu.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.97);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transform:translateX(100%);transition:transform 0.3s ease;';
+        // Add close button
+        var closeBtn = document.createElement('button');
+        closeBtn.className = 'close-menu';
+        closeBtn.innerHTML = '<i class="fas fa-times" style="font-size:28px;color:white;"></i>';
+        closeBtn.style.cssText = 'position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;z-index:201;';
+        mobileMenu.appendChild(closeBtn);
+        // Clone all nav links
+        navLinks.forEach(function(link) {
+          var clone = link.cloneNode(true);
+          clone.style.cssText = 'color:white;text-decoration:none;font-size:1.3rem;display:block;padding:0.75rem 0;';
+          mobileMenu.appendChild(clone);
+        });
+        document.body.appendChild(mobileMenu);
+      }
+    }
+
+    if (!hamburger || !mobileMenu) return;
+
+    // Remove any existing click handlers by cloning the hamburger
+    var newHamburger = hamburger.cloneNode(true);
+    hamburger.parentNode.replaceChild(newHamburger, hamburger);
+    hamburger = newHamburger;
+
+    function openMenu() {
+      mobileMenu.classList.add('active');
+      mobileMenu.style.transform = 'translateX(0)';
+      hamburger.innerHTML = '<i class="fas fa-times" style="font-size:28px;"></i>';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('active');
+      mobileMenu.style.transform = 'translateX(100%)';
+      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (mobileMenu.classList.contains('active')) { closeMenu(); } else { openMenu(); }
+    });
+
+    // Close when clicking any link inside the mobile menu
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() { closeMenu(); });
+    });
+
+    // Close when clicking any close button inside the menu
+    mobileMenu.querySelectorAll('.close-menu, .mobile-close, [class*="close"], button').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeMenu();
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) { closeMenu(); }
+    });
+
+  } catch(e) { console.error('[SiteFlow Menu]', e); }
+})();
+</script>
+
+<script>
+/* ═══ SITEFLOW: WRAP AI JAVASCRIPT IN SAFETY NET ═══ */
+/* If the AI's JS has bugs (open/closed badge, stats counter, etc.), */
+/* this ensures the menu and core features still work. */
+(function() {
+  try {
+    // Force remove any scroll-reveal opacity:0 from hero after 2 seconds
+    setTimeout(function() {
+      var hero = document.querySelector('.hero, #hero, section:first-of-type');
+      if (hero) {
+        hero.querySelectorAll('*').forEach(function(el) {
+          var style = window.getComputedStyle(el);
+          if (style.opacity === '0') {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+          }
+        });
+      }
+    }, 2000);
+
+    // Force fix: if preloader is STILL showing after 4 seconds, kill it
+    setTimeout(function() {
+      var preloader = document.querySelector('.preloader, #preloader, .loading-screen, .loader-overlay, [class*="preload"]');
+      if (preloader) {
+        preloader.style.opacity = '0';
+        preloader.style.pointerEvents = 'none';
+        setTimeout(function() { if (preloader.parentNode) preloader.parentNode.removeChild(preloader); }, 500);
+      }
+    }, 4000);
+  } catch(e) { console.error('[SiteFlow Safety]', e); }
+})();
+</script>
+</body>
+</html>
